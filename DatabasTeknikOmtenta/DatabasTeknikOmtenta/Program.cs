@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using DatabasTeknikOmtenta;
 
 namespace ConsoleApplication1
 {
@@ -12,8 +13,19 @@ namespace ConsoleApplication1
         static string cns = @"server=(localdb)\MSSQLLocalDB;Database=NORTHWND;Trusted_Connection=Yes";
         static void Main(string[] args)
         {
+            //OrdersByCustomerCompanyName("randomname");
+
             //FreightByShipper();
-            AddToy();
+
+            //CustomersPerSupplier();
+
+            //SupplierForProduct(5);
+
+            //OrderDetailsInPriceRange(10, 20);
+
+            //AddToy();
+
+            Console.ReadLine();
         }
 
         public static void OrdersByCustomerCompanyName(string CompanyName)
@@ -49,6 +61,38 @@ namespace ConsoleApplication1
         public static void CustomersPerSupplier()
         {
 
+        }
+
+        public static void SupplierForProduct(int productID)
+        {
+
+            using (var db = new NORTHWNDContext())
+            {
+                foreach (var item in db.Products)
+                {
+                    if (item.ProductID == productID)
+                    {
+                        Console.WriteLine(item.ProductName);
+                        Console.WriteLine("=====================");
+                    }
+                }
+            }
+        }
+
+        public static void OrderDetailsInPriceRange(int LowestPriceInclusive, int HighestPriceInclusive)
+        {
+            using (var db = new NORTHWNDContext())
+            {
+                foreach (var item in db.Products)
+                {
+                    if (item.UnitPrice > LowestPriceInclusive && item.UnitPrice < HighestPriceInclusive)
+                    {
+                        Console.WriteLine("Item name: " + item.ProductName + ".");
+                        Console.WriteLine("Product price: " + item.UnitPrice + ".");
+                        Console.WriteLine("============================================");
+                    }
+                }
+            }
         }
 
         public static void AddToy()

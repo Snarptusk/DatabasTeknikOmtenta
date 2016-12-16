@@ -33,8 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +54,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alphabetical_list_of_products.cs" />
+    <Compile Include="Categories.cs" />
+    <Compile Include="Category_Sales_for_1997.cs" />
+    <Compile Include="CountCategories.cs" />
+    <Compile Include="Current_Product_List.cs" />
+    <Compile Include="CustomerContactNameChanges.cs" />
+    <Compile Include="CustomerDemographics.cs" />
+    <Compile Include="Customers.cs" />
+    <Compile Include="CustomersByEmployee.cs" />
+    <Compile Include="Customer_and_Suppliers_by_City.cs" />
+    <Compile Include="C__RefactorLog.cs" />
+    <Compile Include="Employees.cs" />
+    <Compile Include="Invoices.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="NORTHWNDContext.cs" />
+    <Compile Include="OrderDetailCount.cs" />
+    <Compile Include="Orders.cs" />
+    <Compile Include="Orders_Qry.cs" />
+    <Compile Include="Order_Details.cs" />
+    <Compile Include="Order_Details_Extended.cs" />
+    <Compile Include="Order_Subtotals.cs" />
+    <Compile Include="Products.cs" />
+    <Compile Include="Products_Above_Average_Price.cs" />
+    <Compile Include="Products_by_Category.cs" />
+    <Compile Include="Product_Sales_for_1997.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="Sales_by_Category.cs" />
+    <Compile Include="Sales_Totals_by_Amount.cs" />
+    <Compile Include="Shippers.cs" />
+    <Compile Include="SimpleEmployees.cs" />
+    <Compile Include="Summary_of_Sales_by_Quarter.cs" />
+    <Compile Include="Summary_of_Sales_by_Year.cs" />
+    <Compile Include="SupplierProductView.cs" />
+    <Compile Include="Suppliers.cs" />
+    <Compile Include="sysdiagrams.cs" />
+    <Compile Include="Territories.cs" />
+    <Compile Include="Toys.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
