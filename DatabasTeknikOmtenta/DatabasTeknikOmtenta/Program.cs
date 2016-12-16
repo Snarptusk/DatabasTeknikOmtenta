@@ -13,6 +13,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             //FreightByShipper();
+            AddToy();
         }
 
         public static void OrdersByCustomerCompanyName(string CompanyName)
@@ -48,6 +49,34 @@ namespace ConsoleApplication1
         public static void CustomersPerSupplier()
         {
 
+        }
+
+        public static void AddToy()
+        {
+            Console.Write("Input a toy ID: ");
+            string toyId = Console.ReadLine();
+
+            Console.Write("Input a toy description: ");
+            string description = Console.ReadLine();
+
+            Console.Write("Was the toy made by santa? (1 = Yes, 0 = No): ");
+            string MadeBySanta = Console.ReadLine();
+
+            SqlConnection cn = new SqlConnection(cns);
+            cn.Open();
+            SqlCommand cmd = cn.CreateCommand();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "AddToy(Description, MadeBySanta)";
+            cmd.Parameters.AddWithValue("@ToyID", toyId);
+            cmd.Parameters.AddWithValue("@description", description);
+            cmd.Parameters.AddWithValue("@MadeBySanta", MadeBySanta);
+
+            cmd.ExecuteNonQuery();
+            cn.Close();
+
+            Console.WriteLine("=======================================");
+            Console.WriteLine("Toy added!");
+            Console.WriteLine("=======================================");
         }
     }
 }
